@@ -1,0 +1,47 @@
+[
+    {
+        "document_id": "50d676a2-eb2c-44b6-b83d-a82f2d3d1349",
+        "filename": "pratik-resume(2310264).pdf",
+        "file_hash": "a4f29bb2823df2cc4702c8cba2d0d8e37c44ec9aa81a949dd40526f79adb5c69",
+        "title": "Untitled document - Google Docs",
+        "author": null,
+        "subject": null,
+        "creator": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+        "producer": "Skia/PDF m143",
+        "creation_date": "2026-01-20T02:48:47+00:00",
+        "modification_date": "2026-01-20T02:48:47+00:00",
+        "page_count": 2,
+        "user_id": "user_1",
+        "ingestion_timestamp": "2026-06-04T05:03:33.729296"
+    },
+    {
+        "document_id": "ee18c2ae-216e-46de-a549-76218f3ffaf1",
+        "filename": "400112120.pdf",
+        "file_hash": "464b0f8be13db00a039041461871636ec35afee8b9a771e7ce04288b0194b8c0",
+        "title": null,
+        "author": "SYS_WSS ",
+        "subject": null,
+        "creator": "Form ZIS_BILL_PRINT_ONLINE_2018 EN",
+        "producer": "SAP NetWeaver 731 ",
+        "creation_date": "2024-08-23T19:36:17",
+        "modification_date": null,
+        "page_count": 1,
+        "user_id": "user_1",
+        "ingestion_timestamp": "2026-06-04T05:03:35.557414"
+    },
+    {
+        "document_id": "476a57ca-1d72-461a-9838-f0e017d2eb99",
+        "filename": "annual_report.pdf",
+        "file_hash": "c296ec6075de3f0b665281f10127a5ae7d666757f2c13f736288a7ee7a546075",
+        "title": "Global Tech Solutions: 5-Year Strategic Review",
+        "author": "Finance Strategy Group",
+        "subject": "Annual Strategic Review 2020-2025",
+        "creator": null,
+        "producer": null,
+        "creation_date": "2026-06-02T07:39:03+00:00",
+        "modification_date": null,
+        "page_count": 6,
+        "user_id": "user_1",
+        "ingestion_timestamp": "2026-06-04T05:03:38.170174"
+    }
+]
