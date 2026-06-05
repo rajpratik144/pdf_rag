@@ -26,3 +26,15 @@ db/chroma/
 
 # Optional
 .pytest_cache/
+
+.venv/
+__pycache__/
+*.pyc
+
+.env
+
+db/
+uploads/
+temp/
+
+.pytest_cache/

@@ -297,44 +297,45 @@ load_dotenv()
 # print(
 #     result["sources"]
 # )
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
-from document_ai import (
-    DocumentAI
-)
+# from document_ai import (
+#     DocumentAI
+# )
 
-ai = (
-    DocumentAI()
-)
+# ai = (
+#     DocumentAI()
+# )
 
-document_id = (
-    ai.upload(
-        "documents/pratik-resume(2310264).pdf",
-        "user_2"
-    )
-)
+# document_id = (
+#     ai.upload(
+#         "documents/pratik-resume(2310264).pdf",
+#         "user_2"
+#     )
+# )
 
-print(
-    document_id
-)
+# print(
+#     document_id
+# )
 
-print()
+# print()
 
-print(
+# print(
 
-    ai.ask(
+#     ai.ask(
 
-        question=
-        "What skills are mentioned?",
+#         question=
+#         "What skills are mentioned?",
 
-        user_id=
-        "user_2",
+#         user_id=
+#         "user_2",
 
-        document_id=
-        document_id
+#         document_id=
+#         document_id
 
-    )
+#     )
 
-)
+# )
+
