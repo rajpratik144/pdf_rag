@@ -19,6 +19,7 @@ class RAGEngine:
         self.qa_service = (QAService(api_key=os.getenv("GROQ_API_KEY")))
         self.metadata_store = (MetadataStore())
 
+# this function metadata from the metadata_store file
     def _answer_metadata(self,field,user_id,document_id=None):
         if document_id:
             document = (self.metadata_store.get_document(document_id))

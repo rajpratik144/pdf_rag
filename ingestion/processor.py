@@ -7,6 +7,7 @@ from storage.vector_store import (VectorStore)
 from core.logger import get_logger
 from core.hash_utils import (get_file_hash)
 from ingestion.table_extractor import (TableExtractor)
+from ingestion.image_description_extractor import (ImageDescriptionExtractor)
 
 logger = get_logger(__name__)
 
@@ -32,11 +33,38 @@ class DocumentProcessor:
 
         metadata = (MetadataExtractor.extract(pdf_path,user_id))
         self.metadata_store.add_document(metadata)
-        documents = (TextExtractor.extract(pdf_path))
-        table_documents = (TableExtractor.extract(pdf_path))
+        text_documents = (
+            TextExtractor.extract(
+                pdf_path
+            )
+        )
 
-        chunks = (self.chunker.chunk_documents(documents))
-        chunks = (table_documents + chunks)
+        table_documents = (
+            TableExtractor.extract(
+                pdf_path
+            )
+        )
+
+        image_documents = (
+            ImageDescriptionExtractor.extract(
+                pdf_path
+            )
+        )
+
+        chunks = (
+            self.chunker.chunk_documents(
+                text_documents
+            )
+        )
+
+        chunks.extend(
+            table_documents
+        )
+
+        chunks.extend(
+            image_documents
+        )
+
         
         for chunk_id, chunk in enumerate(chunks):
             chunk.metadata.update(
