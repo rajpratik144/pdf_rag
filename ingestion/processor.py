@@ -1,3 +1,8 @@
+# ==========================================
+# File: ingestion/processor.py
+# ==========================================
+
+
 from pathlib import Path        
 from ingestion.metadata_extractor import (MetadataExtractor)
 from ingestion.text_extractor import (TextExtractor)
@@ -33,38 +38,12 @@ class DocumentProcessor:
 
         metadata = (MetadataExtractor.extract(pdf_path,user_id))
         self.metadata_store.add_document(metadata)
-        text_documents = (
-            TextExtractor.extract(
-                pdf_path
-            )
-        )
-
-        table_documents = (
-            TableExtractor.extract(
-                pdf_path
-            )
-        )
-
-        image_documents = (
-            ImageDescriptionExtractor.extract(
-                pdf_path
-            )
-        )
-
-        chunks = (
-            self.chunker.chunk_documents(
-                text_documents
-            )
-        )
-
-        chunks.extend(
-            table_documents
-        )
-
-        chunks.extend(
-            image_documents
-        )
-
+        text_documents = (TextExtractor.extract(pdf_path))
+        table_documents = (TableExtractor.extract(pdf_path))
+        image_documents = (ImageDescriptionExtractor.extract(pdf_path))
+        chunks = (self.chunker.chunk_documents(text_documents))
+        chunks.extend(table_documents)
+        chunks.extend(image_documents)
         
         for chunk_id, chunk in enumerate(chunks):
             chunk.metadata.update(

@@ -1,3 +1,8 @@
+# ==========================================
+# File: core/exceptions.py
+# ==========================================
+
+
 """
 Custom exceptions used throughout the
 Document Intelligence Engine.

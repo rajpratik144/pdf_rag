@@ -1,3 +1,8 @@
+# ==========================================
+# File: core/hash_utils.py
+# ==========================================
+
+
 import hashlib
 
 def get_file_hash(file_path:str)->str:

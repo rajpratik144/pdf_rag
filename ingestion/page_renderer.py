@@ -1,3 +1,8 @@
+# ==========================================
+# File: ingestion/page_renderer.py
+# ==========================================
+
+
 from pathlib import Path
 import fitz
 from core.logger import get_logger

@@ -1,3 +1,8 @@
+# ==========================================
+# File: ingestion/table_extractor.py
+# ==========================================
+
+
 import pdfplumber
 from langchain_core.documents import (Document)
 

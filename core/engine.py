@@ -10,6 +10,11 @@ from core.logger import get_logger
 
 logger = get_logger(__name__)
 
+# ==========================================
+# File: core/engine.py
+# ==========================================
+
+
 # this is the main engine that handles all the non llm tasks before the query/question is sent to llm.
 class RAGEngine:
     def __init__(self):

@@ -1,3 +1,8 @@
+# ==========================================
+# File: ingestion/image_extractor.py
+# ==========================================
+
+
 import pdfplumber
 class ImageExtractor:
 

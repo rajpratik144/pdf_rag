@@ -1,3 +1,8 @@
+# ==========================================
+# File: embeddings/embedding_service.py
+# ==========================================
+
+
 import os
 from langchain_google_genai import (GoogleGenerativeAIEmbeddings)
 from core.logger import get_logger

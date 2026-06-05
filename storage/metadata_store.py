@@ -1,3 +1,8 @@
+# ==========================================
+# File: storage/metadata_store.py
+# ==========================================
+
+
 import json
 from pathlib import Path
 from core.logger import get_logger

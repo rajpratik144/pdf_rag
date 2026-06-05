@@ -1,3 +1,8 @@
+# ==========================================
+# File: storage/vector_store.py
+# ==========================================
+
+
 from chromadb.config import Settings
 from langchain_chroma import Chroma
 from embeddings.embedding_service import (EmbeddingService)
