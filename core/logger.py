@@ -6,10 +6,9 @@
 import logging
 import os
 
+from config import Config
 
-LOG_DIR = "logs"
-
-os.makedirs(LOG_DIR, exist_ok=True)
+Config.LOG_DIR.mkdir(parents=True,exist_ok=True)
 
 
 def get_logger(name: str):
@@ -26,7 +25,7 @@ def get_logger(name: str):
     )
 
     file_handler = logging.FileHandler(
-        os.path.join(LOG_DIR, "application.log")
+        Config.LOG_DIR / "application.log"
     )
 
     file_handler.setFormatter(formatter)

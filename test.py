@@ -339,3 +339,20 @@ load_dotenv()
 
 # )
 
+# test_embeddings.py
+
+from dotenv import load_dotenv
+load_dotenv()
+
+from embeddings.embedding_service import EmbeddingService
+
+service = EmbeddingService()
+
+print("Service initialized.")
+
+vector = service.get_embedding_model().embed_query(
+    "hello world"
+)
+
+print(f"Embedding dimension: {len(vector)}")
+print(vector[:5])

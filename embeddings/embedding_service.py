@@ -7,18 +7,20 @@ import os
 from langchain_google_genai import (GoogleGenerativeAIEmbeddings)
 from core.logger import get_logger
 from core.exceptions import (EmbeddingError)
+from config import Config
 
 logger = get_logger(__name__)
 
 class EmbeddingService:
     def __init__(self):
-        api_key = os.getenv("GOOGLE_API_KEY")
+
+        api_key = Config.GOOGLE_API_KEY
         
         if not api_key:
             raise EmbeddingError("GOOGLE_API_KEY not found.")
         
         try:
-            self.embeddings = (GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001",google_api_key=api_key))
+            self.embeddings = (GoogleGenerativeAIEmbeddings(model=Config.EMBEDDING_MODEL,google_api_key=api_key))
 
         except Exception as e:
             logger.error(f"Embedding initialization failed: {e}")

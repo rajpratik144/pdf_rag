@@ -5,11 +5,13 @@
 
 from langchain_core.documents import Document
 from core.logger import get_logger
+from config import Config
 logger = get_logger(__name__)
 
 class DocumentChunker:
 
-    def __init__(self,chunk_size=1000,chunk_overlap=150):
+
+    def __init__(self,chunk_size=Config.CHUNK_SIZE,chunk_overlap=Config.CHUNK_OVERLAP):
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
 

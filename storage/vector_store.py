@@ -7,12 +7,14 @@ from chromadb.config import Settings
 from langchain_chroma import Chroma
 from embeddings.embedding_service import (EmbeddingService)
 from core.logger import get_logger
+from config import Config
 from core.exceptions import (StorageError)
 
 logger = get_logger(__name__)
 
 class VectorStore:
-    def __init__(self,persist_directory="db/chroma"):
+    def __init__(self,persist_directory=None):
+        if persist_directory is None:persist_directory = str(Config.CHROMA_DIR)
         try:
             embedding_service = (EmbeddingService())
             self.embeddings = (embedding_service.get_embedding_model())

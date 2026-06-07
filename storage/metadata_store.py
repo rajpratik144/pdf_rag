@@ -7,10 +7,15 @@ import json
 from pathlib import Path
 from core.logger import get_logger
 from core.exceptions import (StorageError)
+from config import Config
 logger = get_logger(__name__)
 
 class MetadataStore:
-    def __init__(self,storage_path="db/metadata.json"):
+
+    def __init__(self,storage_path=None):
+
+        if storage_path is None:
+            storage_path = Config.METADATA_FILE
 
         self.storage_path = Path(storage_path)
         self.storage_path.parent.mkdir(parents=True,exist_ok=True)

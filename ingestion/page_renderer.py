@@ -6,11 +6,13 @@
 from pathlib import Path
 import fitz
 from core.logger import get_logger
+from config import Config
 logger = get_logger(__name__)
 
 class PageRenderer:
     @staticmethod
-    def render_page(pdf_path,page_number,output_dir="temp"):
+
+    def render_page(pdf_path,page_number,output_dir=Config.TEMP_DIR):
 
         output_dir = Path(output_dir)
         output_dir.mkdir(parents=True,exist_ok=True)

@@ -10,12 +10,13 @@ from ingestion.image_extractor import (ImageExtractor)
 from ingestion.page_renderer import (PageRenderer)
 import os
 import base64
+from config import Config
 
 class ImageDescriptionExtractor:
     @staticmethod
     def extract(pdf_path):
 
-        llm = (ChatGoogleGenerativeAI(model="gemini-2.5-flash",google_api_key=os.getenv("GOOGLE_API_KEY"),temperature=0))
+        llm = (ChatGoogleGenerativeAI(model=Config.IMAGE_MODEL , google_api_key=Config.GOOGLE_API_KEY,temperature=0))
 
         image_documents = []
 

@@ -1,18 +1,18 @@
-import os
+# ==========================================
+# File: core/engine.py
+# ==========================================
 
+import os
 from retrieval.retriever import Retriever
 from qa.qa_service import QAService
 from storage.vector_store import VectorStore
 from storage.metadata_store import MetadataStore
 from core.metadata_router import MetadataRouter
-
+from config import Config
 from core.logger import get_logger
 
 logger = get_logger(__name__)
 
-# ==========================================
-# File: core/engine.py
-# ==========================================
 
 
 # this is the main engine that handles all the non llm tasks before the query/question is sent to llm.
@@ -21,7 +21,7 @@ class RAGEngine:
         # these are all the variables made using the objects of the classes imported foem different files.
         self.vector_store = (VectorStore())
         self.retriver = (Retriever(self.vector_store))
-        self.qa_service = (QAService(api_key=os.getenv("GROQ_API_KEY")))
+        self.qa_service = (QAService(api_key=Config.GROQ_API_KEY))
         self.metadata_store = (MetadataStore())
 
 # this function metadata from the metadata_store file

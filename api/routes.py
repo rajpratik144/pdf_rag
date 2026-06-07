@@ -8,15 +8,19 @@ from pathlib import Path
 from fastapi import (APIRouter,UploadFile,File,Form)
 from api.models import (AskRequest,DeleteResponse,UploadResponse)
 from document_ai import (DocumentAI)
+from config import Config
 
 router = APIRouter()
 document_ai = DocumentAI()
-UPLOAD_DIR = Path("uploads")
-UPLOAD_DIR.mkdir(exist_ok=True)
+
+Config.UPLOAD_DIR.mkdir(
+    parents=True,
+    exist_ok=True
+)
 
 @router.post("/upload",response_model=UploadResponse)
 async def upload_document(user_id: str = Form(...),file: UploadFile = File(...)):
-    file_path = (UPLOAD_DIR/ file.filename)
+    file_path = (Config.UPLOAD_DIR /file.filename)
 
     with open(file_path,"wb") as buffer:
 
