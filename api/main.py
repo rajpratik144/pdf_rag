@@ -39,6 +39,11 @@ Path(
     exist_ok=True
 )
 
+Path(Config.LOG_DIR).mkdir(
+    parents=True,
+    exist_ok=True
+)
+
 app = FastAPI(
     title="Document AI API",
     version="1.0.0"
