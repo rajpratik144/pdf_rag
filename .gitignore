@@ -38,3 +38,20 @@ uploads/
 temp/
 
 .pytest_cache/
+
+.venv/
+
+.env
+
+__pycache__/
+
+*.pyc
+
+uploads/
+
+db/chroma/
+
+temp/
+
+logs/
+db/metadata.json

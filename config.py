@@ -55,3 +55,21 @@ class Config:
     CHUNK_SIZE = 1000
 
     CHUNK_OVERLAP = 150
+
+    @classmethod
+    def validate(cls):
+
+        required = {
+            "GOOGLE_API_KEY": cls.GOOGLE_API_KEY,
+            "GROQ_API_KEY": cls.GROQ_API_KEY
+        }
+
+        missing = [
+            k for k, v in required.items()
+            if not v
+        ]
+
+        if missing:
+            raise ValueError(
+                f"Missing environment variables: {missing}"
+            )
