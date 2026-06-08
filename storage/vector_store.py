@@ -12,8 +12,12 @@ from core.exceptions import (StorageError)
 
 logger = get_logger(__name__)
 
+
 class VectorStore:
+
     def __init__(self,persist_directory=None):
+
+        persist_directory = (persist_directory or Config.CHROMA_DIR)      
         if persist_directory is None:persist_directory = str(Config.CHROMA_DIR)
         try:
             embedding_service = (EmbeddingService())

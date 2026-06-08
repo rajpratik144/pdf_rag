@@ -1,10 +1,8 @@
-# ==========================================
-# File: config.py
-# ==========================================
-
-
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class Config:
@@ -17,56 +15,96 @@ class Config:
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
     # ==========================
-    # Storage Paths
+    # Base Paths
     # ==========================
 
     BASE_DIR = Path(__file__).resolve().parent
 
-    UPLOAD_DIR = BASE_DIR / "uploads"
+    UPLOAD_DIR = Path(
+        os.getenv(
+            "UPLOAD_DIR",
+            str(BASE_DIR / "uploads")
+        )
+    )
 
-    TEMP_DIR = BASE_DIR / "temp"
+    TEMP_DIR = Path(
+        os.getenv(
+            "TEMP_DIR",
+            str(BASE_DIR / "temp")
+        )
+    )
 
-    DB_DIR = BASE_DIR / "db"
+    DB_DIR = Path(
+        os.getenv(
+            "DB_DIR",
+            str(BASE_DIR / "db")
+        )
+    )
 
-    CHROMA_DIR = DB_DIR / "chroma"
+    CHROMA_DIR = Path(
+        os.getenv(
+            "CHROMA_DIR",
+            str(DB_DIR / "chroma")
+        )
+    )
 
-    METADATA_FILE = DB_DIR / "metadata.json"
+    METADATA_FILE = Path(
+        os.getenv(
+            "METADATA_FILE",
+            str(DB_DIR / "metadata.json")
+        )
+    )
 
-    LOG_DIR = BASE_DIR / "logs"
+    LOG_DIR = Path(
+        os.getenv(
+            "LOG_DIR",
+            str(BASE_DIR / "logs")
+        )
+    )
 
     # ==========================
-    # Embedding Model
+    # Models
     # ==========================
 
-    EMBEDDING_MODEL = "gemini-embedding-2-preview"
+    EMBEDDING_MODEL = os.getenv(
+        "EMBEDDING_MODEL",
+        "gemini-embedding-2-preview"
+    )
 
-    # ==========================
-    # LLM Models
-    # ==========================
+    IMAGE_MODEL = os.getenv(
+        "IMAGE_MODEL",
+        "gemini-2.5-flash"
+    )
 
-    IMAGE_MODEL = "gemini-2.5-flash"
-
-    QA_MODEL = "llama-3.3-70b-versatile"
+    QA_MODEL = os.getenv(
+        "QA_MODEL",
+        "llama-3.3-70b-versatile"
+    )
 
     # ==========================
     # Chunking
     # ==========================
 
-    CHUNK_SIZE = 1000
+    CHUNK_SIZE = int(
+        os.getenv("CHUNK_SIZE", 1000)
+    )
 
-    CHUNK_OVERLAP = 150
+    CHUNK_OVERLAP = int(
+        os.getenv("CHUNK_OVERLAP", 150)
+    )
 
     @classmethod
     def validate(cls):
 
         required = {
             "GOOGLE_API_KEY": cls.GOOGLE_API_KEY,
-            "GROQ_API_KEY": cls.GROQ_API_KEY
+            "GROQ_API_KEY": cls.GROQ_API_KEY,
         }
 
         missing = [
-            k for k, v in required.items()
-            if not v
+            key
+            for key, value in required.items()
+            if not value
         ]
 
         if missing:

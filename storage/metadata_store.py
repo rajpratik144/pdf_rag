@@ -10,9 +10,11 @@ from core.exceptions import (StorageError)
 from config import Config
 logger = get_logger(__name__)
 
+
 class MetadataStore:
 
     def __init__(self,storage_path=None):
+        storage_path = (storage_path or Config.METADATA_FILE)
 
         if storage_path is None:
             storage_path = Config.METADATA_FILE
